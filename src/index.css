@@ -1,0 +1,292 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+.container {
+  position: relative;
+  min-height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 40px;
+  z-index: 2;
+}
+
+.card {
+  width: 320px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+
+  color: white;
+
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+input {
+  padding: 10px;
+  width: 250px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+.forecast-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.dark {
+  background-color: #1e1e1e;
+  color: white;
+  min-height: 100vh;
+  padding-top: 20px;
+}
+
+.dark .card {
+  background-color: #333;
+  color: white;
+}
+
+.dark input {
+  background-color: #444;
+  color: white;
+}
+
+.dark button {
+  background-color: #555;
+  color: white;
+}
+.weather-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+.sun {
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    #fff176,
+    #ffeb3b,
+    #ff9800
+  );
+
+  position: absolute;
+
+  top: 50px;
+  right: 100px;
+
+  box-shadow:
+    0 0 50px yellow,
+    0 0 100px orange;
+
+  animation: floatSun 5s ease-in-out infinite;
+}
+
+@keyframes floatSun {
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.cloud {
+  position: absolute;
+
+  width: 220px;
+  height: 70px;
+
+  background: white;
+
+  border-radius: 100px;
+
+  opacity: 0.9;
+}
+.cloud::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  top: -40px;
+  left: 30px;
+}
+.cloud1 {
+  top: 100px;
+
+  animation:
+    moveCloud 25s linear infinite;
+}
+
+.cloud2 {
+  top: 220px;
+
+  animation:
+    moveCloud 35s linear infinite;
+}
+@keyframes moveCloud {
+  from {
+    left: -300px;
+  }
+
+  to {
+    left: 110%;
+  }
+}
+.raindrop {
+  position: absolute;
+
+  width: 2px;
+  height: 20px;
+
+  background: #8ec5ff;
+
+  animation:
+    rain 1s linear infinite;
+}
+@keyframes rain {
+  from {
+    transform:
+      translateY(-100vh);
+  }
+
+  to {
+    transform:
+      translateY(100vh);
+  }
+}
+.lightning {
+  position: fixed;
+  inset: 0;
+
+  animation:
+    flash 4s infinite;
+}
+@keyframes flash {
+  0%,90%,100% {
+    background: transparent;
+  }
+
+  92% {
+    background:
+      rgba(255,255,255,0.9);
+  }
+
+  94% {
+    background:
+      transparent;
+  }
+
+  96% {
+    background:
+      rgba(255,255,255,0.8);
+  }
+}
+.Clear {
+  background: linear-gradient(
+    to bottom,
+    #4facfe,
+    #00f2fe
+  );
+}
+
+.Clouds {
+  background: linear-gradient(
+    to bottom,
+    #bdc3c7,
+    #2c3e50
+  );
+}
+
+
+
+.Thunderstorm {
+  background: linear-gradient(
+    to bottom,
+    #141e30,
+    #243b55
+  );
+}
+
+.Snow {
+  background: linear-gradient(
+    to bottom,
+    #e6dada,
+    #274046
+  );
+}
+
+.snow-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: white;
+  animation: snowfall linear infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-20px) translateX(0);
+  }
+
+  50% {
+    transform: translateY(50vh) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(-20px);
+  }
+}
+.rain-container {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.raindrop {
+  position: absolute;
+  top: -20px;
+
+  width: 2px;
+  height: 18px;
+
+  background: #8ec5ff;
+
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  from {
+    transform: translateY(-20px);
+  }
+
+  to {
+    transform: translateY(110vh);
+  }
+}
